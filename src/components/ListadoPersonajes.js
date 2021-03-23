@@ -1,8 +1,13 @@
+import { useContext } from "react";
+import GeneralContext from "../contexts/GeneralContext";
 import Personaje from "./Personaje";
 import TotalPersonajes from "./TotalPersonajes";
-import personajes from "../personajes.json";
+
 const ListadoPersonajes = () => {
+  const personajes = [useContext(GeneralContext)];
+  console.log(personajes);
   return (
+
     <section className="listado">
       <TotalPersonajes />
       <table className="personajes table table-bordered">
@@ -14,7 +19,10 @@ const ListadoPersonajes = () => {
           </tr>
         </thead>
         <tbody>
-          <Personaje />
+          {personajes.map(personajePasar =>
+            < Personaje
+              personaje={personajePasar} />
+          )}
           <tr className="personaje">
             <td>Marge Simpson</td>
             <td>Menos de 50 años</td>
@@ -33,6 +41,7 @@ const ListadoPersonajes = () => {
         </tbody>
       </table>
     </section>
+
   );
 };
 export default ListadoPersonajes;
