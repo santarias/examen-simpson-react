@@ -1,6 +1,6 @@
 import Personaje from "./Personaje";
 import TotalPersonajes from "./TotalPersonajes";
-
+import personajes from "../personajes.json";
 const ListadoPersonajes = () => {
   return (
     <section className="listado">
